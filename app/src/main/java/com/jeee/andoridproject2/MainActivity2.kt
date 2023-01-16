@@ -20,7 +20,6 @@ class MainActivity2 : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.password)
         val ViewModel = ViewModelProvider(this)[ViewModel::class.java]
         val Usernamevalue = "Aljawharah"
-        val Passwordvalue = "54321"
 
         login.setOnClickListener {
             if (ViewModel.Check1(username.text.toString()) && ViewModel.Check2(password.text.toString())) {
