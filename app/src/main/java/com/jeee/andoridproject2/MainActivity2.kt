@@ -5,24 +5,31 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
+import android.widget.Toast
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 
 class MainActivity2 : AppCompatActivity() {
-
-    private lateinit var  login: Button
-    private lateinit var  username: EditText
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main2)
+        setContentView(R.layout.activity_login)
         supportActionBar?.hide()
-        val button1 = findViewById<Button>(R.id.login)
-        val text1 = findViewById<EditText>(R.id.username)
 
-        button1.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java).putExtra("username",username.toString()))
+        val login = findViewById<Button>(R.id.login)
+        val ViewModel = ViewModelProvider(this)[ViewModel::class.java]
+        val username = findViewById<EditText>(R.id.username)
+        val password = findViewById<EditText>(R.id.password)
+        val Usernamevalue = "Aljawharah"
+        val Passwordvalue = "54321"
+
+        login.setOnClickListener {
+            if (ViewModel.Check1(username.text.toString()) && ViewModel.Check2(password.text.toString())) {
+                val intent = Intent(applicationContext, HomeActivity::class.java)
+                intent.putExtra("username", username.text.toString())
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "You Don't have the correct credential", Toast.LENGTH_LONG).show()
+            }
         }
-
     }
 }
