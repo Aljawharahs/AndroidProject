@@ -22,7 +22,7 @@ class MainActivity2 : AppCompatActivity() {
         val Usernamevalue = "Aljawharah"
 
         login.setOnClickListener {
-            if (ViewModel.Check1(username.text.toString()) && ViewModel.Check2(password.text.toString())) {
+            if (ViewModel.Check1(username.text.toString())) {
                 val intent = Intent(applicationContext, HomeActivity::class.java)
                 intent.putExtra("username", username.text.toString())
                 startActivity(intent)
