@@ -16,9 +16,9 @@ class MainActivity2 : AppCompatActivity() {
         supportActionBar?.hide()
 
         val login = findViewById<Button>(R.id.login)
-        val ViewModel = ViewModelProvider(this)[ViewModel::class.java]
         val username = findViewById<EditText>(R.id.username)
         val password = findViewById<EditText>(R.id.password)
+        val ViewModel = ViewModelProvider(this)[ViewModel::class.java]
         val Usernamevalue = "Aljawharah"
         val Passwordvalue = "54321"
 
@@ -28,7 +28,7 @@ class MainActivity2 : AppCompatActivity() {
                 intent.putExtra("username", username.text.toString())
                 startActivity(intent)
             } else {
-                Toast.makeText(this, "You Don't have the correct credential", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "You must have the correct credential", Toast.LENGTH_LONG).show()
             }
         }
     }
